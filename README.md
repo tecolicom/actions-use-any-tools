@@ -4,7 +4,7 @@ This Github action is a quick interface to use other `use-*-tools`
 actions.  Currently
 [`apt`](https://github.com/office-tecoli/actions-use-apt-tools) and
 [`perl`](https://github.com/office-tecoli/actions-use-perl-tools)
-tools are supported.  Common parameters `cache` and `cache_gen` can be
+tools are supported.  Common parameters `cache` and `cache-gen` can be
 set through this action.  If you want to use other parameters, use
 individual action direct.
 
@@ -15,7 +15,7 @@ individual action direct.
 #   apt:       { required: false, type: string }
 #   perl:      { required: false, type: string }
 #   cache:     { required: false, type: string, default: yes }
-#   cache_gen: { required: false, type: string, default: v1 }
+#   cache-gen: { required: false, type: string, default: v1 }
 
 # outputs:
 #   apt-cache-hit:  cache status of apt action
@@ -44,7 +44,7 @@ individual action direct.
     # number produces different cache key.
     #
     # Default: v1
-    cache_gen: v1
+    cache-gen: v1
 
 ```
 

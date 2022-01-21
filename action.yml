@@ -4,7 +4,7 @@ inputs:
   apt:       { required: false, type: string }
   perl:      { required: false, type: string }
   cache:     { required: false, type: string, default: yes }
-  cache_gen: { required: false, type: string, default: v1 }
+  cache-gen: { required: false, type: string, default: v1 }
 
 outputs:
   apt-cache-hit:
@@ -21,11 +21,11 @@ runs:
       with:
         tools: ${{ inputs.apt }}
         cache: ${{ inputs.cache }}
-        cache_gen: ${{ inputs.cache_gen }}
+        cache-gen: ${{ inputs.cache-gen }}
 
     - id: perl
       uses: office-tecoli/actions-use-perl-tools@v0
       with:
         tools: ${{ inputs.perl }}
         cache: ${{ inputs.cache }}
-        cache_gen: ${{ inputs.cache_gen }}
+        cache-gen: ${{ inputs.cache-gen }}
