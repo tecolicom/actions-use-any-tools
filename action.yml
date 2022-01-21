@@ -1,0 +1,25 @@
+name: setup tools
+
+inputs:
+  apt:       { required: false, type: string }
+  perl:      { required: false, type: string }
+  cache:     { required: false, type: string, default: yes }
+  cache_gen: { required: false, type: string, default: v1 }
+
+runs:
+  using: composite
+  steps:
+
+    - name: install apt tools
+      uses: office-tecoli/actions-use-apt-tools@v0
+      with:
+        tools: ${{ inputs.apt }}
+        cache: ${{ inputs.cache }}
+        cache_gen: ${{ inputs.cache_gen }}
+
+    - name: install perl tools
+      uses: office-tecoli/actions-use-perl-tools@v0
+      with:
+        tools: ${{ inputs.perl }}
+        cache: ${{ inputs.cache }}
+        cache_gen: ${{ inputs.cache_gen }}
