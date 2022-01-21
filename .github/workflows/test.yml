@@ -24,6 +24,7 @@ jobs:
       - run: test "${{ steps.action.outputs.cache-hit }}" != true
 
   cached:
+    needs: initial
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
