@@ -1,10 +1,10 @@
 name: setup tools
 
 inputs:
-  apt:       { required: false, type: string }
-  perl:      { required: false, type: string }
-  cache:     { required: false, type: string, default: yes }
-  cache-gen: { required: false, type: string, default: v1 }
+  apt-tools:  { required: false, type: string }
+  perl-tools: { required: false, type: string }
+  cache:      { required: false, type: string, default: yes }
+  cache-gen:  { required: false, type: string, default: v1 }
 
 outputs:
   apt-cache-hit:
@@ -17,15 +17,17 @@ runs:
   steps:
 
     - id: apt
+      if: inputs.apt-tools != ''
       uses: office-tecoli/actions-use-apt-tools@v0
       with:
-        tools: ${{ inputs.apt }}
+        tools: ${{ inputs.apt-tools }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}
 
     - id: perl
+      if: inputs.perl-tools != ''
       uses: office-tecoli/actions-use-perl-tools@v0
       with:
-        tools: ${{ inputs.perl }}
+        tools: ${{ inputs.perl-tools }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}

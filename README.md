@@ -12,10 +12,10 @@ individual action direct.
 
 ```
 # inputs:
-#   apt:       { required: false, type: string }
-#   perl:      { required: false, type: string }
-#   cache:     { required: false, type: string, default: yes }
-#   cache-gen: { required: false, type: string, default: v1 }
+#   apt-tools:  { required: false, type: string }
+#   perl-tools: { required: false, type: string }
+#   cache:      { required: false, type: string, default: yes }
+#   cache-gen:  { required: false, type: string, default: v1 }
 
 # outputs:
 #   apt-cache-hit:  cache status of apt action
@@ -25,10 +25,10 @@ individual action direct.
   with:
 
     # apt tools
-    apt: ''
+    apt-tools: ''
 
     # perl tools
-    perl: ''
+    perl-tools: ''
 
     # Cache strategey
     #
@@ -52,8 +52,7 @@ individual action direct.
 
 ```
 - uses: office-tecoli/actions-use-x-tools
-  id: action
   with:
-    apt: bmake
-    perl: App::ansiecho
+    apt-tools:  bmake
+    perl-tools: App::ansiecho
 ```

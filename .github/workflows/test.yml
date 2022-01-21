@@ -17,8 +17,8 @@ jobs:
         id: action
         with:
           cache: workflow
-          apt: bmake
-          perl: App::ansiecho
+          apt-tools:  bmake
+          perl-tools: App::ansiecho
       - run: |
           bmake -C __test__/bmake
           test "${{ steps.action.outputs.apt-cache-hit }}" != true
@@ -35,8 +35,8 @@ jobs:
         id: action
         with:
           cache: workflow
-          apt: bmake
-          perl: App::ansiecho
+          apt-tools:  bmake
+          perl-tools: App::ansiecho
       - run: |
           bmake -C __test__/bmake
           test "${{ steps.action.outputs.apt-cache-hit }}" == true
