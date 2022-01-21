@@ -1,8 +1,11 @@
 # actions-use-x-tools
 
-This Github action is a quick interface to use other `use-x-tools` actions.
+This Github action is a quick interface to use other `use-x-tools`
+actions.  Currently `apt` and `perl` tools are supported.  Common
+parameters `cache` and `cache_gen` can be set through this action.  If
+you want to use other parameters, use individual action direct.
 
-## usage
+## Usage
 
 ```
 # inputs:
@@ -11,26 +14,25 @@ This Github action is a quick interface to use other `use-x-tools` actions.
 #   cache:     { required: false, type: string, default: yes }
 #   cache_gen: { required: false, type: string, default: v1 }
 
-- uses: office-tecoli/actions-use-perl-tools@v0
+# outputs:
+#   apt-cache-hit:  cache status of apt action
+#   perl-cache-hit: cache status of perl action
+
+- uses: office-tecoli/actions-use-x-tools@v0
   with:
 
     # apt tools
     apt: ''
 
-    # CPAN tools
+    # perl tools
     perl: ''
-
-    # INSTALL_BASE directory
-    #
-    # Default: ~/perl5
-    install_base: ''
 
     # Cache strategey
     #
     # yes:      activate cache
     # workflow: effective within same workflow (mainly for test)
+    # no:       no cache
     #
-    # anything else means 'no'
     cache: yes
 
     #
@@ -39,6 +41,6 @@ This Github action is a quick interface to use other `use-x-tools` actions.
     # number produces different cache key.
     #
     # Default: v1
-    cache_gen: 'v1'
+    cache_gen: v1
 
 ```

@@ -21,7 +21,8 @@ jobs:
           perl: App::ansiecho
       - run: bmake -C __test__/bmake
       - run: ansiecho -C '555/(132,0,41)' d i g i t a l
-      - run: test "${{ steps.action.outputs.cache-hit }}" != true
+      - run: test "${{ steps.action.outputs.apt-cache-hit }}" != true
+      - run: test "${{ steps.action.outputs.apt-perl-hit }}" != true
 
   cached:
     needs: initial
@@ -36,4 +37,5 @@ jobs:
           perl: App::ansiecho
       - run: bmake -C __test__/bmake
       - run: ansiecho -C '555/(132,0,41)' d i g i t a l
-      - run: test "${{ steps.action.outputs.cache-hit }}" != true
+      - run: test "${{ steps.action.outputs.apt-cache-hit }}" == true
+      - run: test "${{ steps.action.outputs.perl-cache-hit }}" == true
