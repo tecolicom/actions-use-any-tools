@@ -1,9 +1,12 @@
 # actions-use-x-tools
 
-This Github action is a quick interface to use other `use-x-tools`
-actions.  Currently `apt` and `perl` tools are supported.  Common
-parameters `cache` and `cache_gen` can be set through this action.  If
-you want to use other parameters, use individual action direct.
+This Github action is a quick interface to use other `use-*-tools`
+actions.  Currently
+[`apt`](https://github.com/office-tecoli/actions-use-apt-tools) and
+[`perl`](https://github.com/office-tecoli/actions-use-perl-tools)
+tools are supported.  Common parameters `cache` and `cache_gen` can be
+set through this action.  If you want to use other parameters, use
+individual action direct.
 
 ## Usage
 
@@ -43,4 +46,14 @@ you want to use other parameters, use individual action direct.
     # Default: v1
     cache_gen: v1
 
+```
+
+## Example
+
+```
+- uses: office-tecoli/actions-use-x-tools
+  id: action
+  with:
+    apt: bmake
+    perl: App::ansiecho
 ```

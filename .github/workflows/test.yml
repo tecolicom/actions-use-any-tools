@@ -19,10 +19,12 @@ jobs:
           cache: workflow
           apt: bmake
           perl: App::ansiecho
-      - run: bmake -C __test__/bmake
-      - run: ansiecho -C '555/(132,0,41)' d i g i t a l
-      - run: test "${{ steps.action.outputs.apt-cache-hit }}" != true
-      - run: test "${{ steps.action.outputs.apt-perl-hit }}" != true
+      - run: |
+          bmake -C __test__/bmake
+          test "${{ steps.action.outputs.apt-cache-hit }}" != true
+      - run: |
+          ansiecho -C '555/(132,0,41)' d i g i t a l
+          test "${{ steps.action.outputs.perl-cache-hit }}" != true
 
   cached:
     needs: initial
@@ -35,7 +37,9 @@ jobs:
           cache: workflow
           apt: bmake
           perl: App::ansiecho
-      - run: bmake -C __test__/bmake
-      - run: ansiecho -C '555/(132,0,41)' d i g i t a l
-      - run: test "${{ steps.action.outputs.apt-cache-hit }}" == true
-      - run: test "${{ steps.action.outputs.perl-cache-hit }}" == true
+      - run: |
+          bmake -C __test__/bmake
+          test "${{ steps.action.outputs.apt-cache-hit }}" == true
+      - run: |
+          ansiecho -C '555/(132,0,41)' d i g i t a l
+          test "${{ steps.action.outputs.perl-cache-hit }}" == true
