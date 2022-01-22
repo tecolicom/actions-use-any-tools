@@ -1,5 +1,7 @@
 # actions-use-x-tools
 
+![actions-use-x-tools](https://github.com/office-tecoli/actions-use-x-tools/actions/workflows/test.yml/badge.svg)
+
 This Github action is a quick interface to use other `use-*-tools`
 actions.  Currently
 [`apt`](https://github.com/office-tecoli/actions-use-apt-tools) and
@@ -10,7 +12,7 @@ individual action direct.
 
 ## Usage
 
-```
+```yaml
 # inputs:
 #   apt-tools:  { required: false, type: string }
 #   perl-tools: { required: false, type: string }
@@ -50,9 +52,20 @@ individual action direct.
 
 ## Example
 
-```
-- uses: office-tecoli/actions-use-x-tools
+```yaml
+- uses: office-tecoli/actions-use-x-tools@v0
   with:
     apt-tools:  bmake
     perl-tools: App::ansiecho
+```
+
+```yaml
+- uses: office-tecoli/actions-use-x-tools@v0
+  with:
+    apt-tools:  >-
+      bmake
+    perl-tools: >-
+      App::Greple
+      App::optex::textconv
+      App::sdif
 ```
