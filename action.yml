@@ -1,16 +1,19 @@
 name: setup tools
 
 inputs:
-  apt-tools:  { required: false, type: string }
-  perl-tools: { required: false, type: string }
-  cache:      { required: false, type: string, default: yes }
-  cache-gen:  { required: false, type: string, default: v1 }
+  apt-tools:    { required: false, type: string }
+  perl-tools:   { required: false, type: string }
+  python-tools: { required: false, type: string }
+  cache:        { required: false, type: string, default: yes }
+  cache-gen:    { required: false, type: string, default: v1 }
 
 outputs:
   apt-cache-hit:
     value: ${{ steps.apt.outputs.cache-hit }}
   perl-cache-hit:
     value: ${{ steps.perl.outputs.cache-hit }}
+  python-cache-hit:
+    value: ${{ steps.python.outputs.cache-hit }}
 
 runs:
   using: composite
@@ -29,5 +32,13 @@ runs:
       uses: office-tecoli/actions-use-perl-tools@v0
       with:
         tools: ${{ inputs.perl-tools }}
+        cache: ${{ inputs.cache }}
+        cache-gen: ${{ inputs.cache-gen }}
+
+    - id: python
+      if: inputs.python-tools != ''
+      uses: office-tecoli/actions-use-python-tools@v0
+      with:
+        tools: ${{ inputs.python-tools }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}

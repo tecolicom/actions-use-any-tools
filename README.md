@@ -14,10 +14,11 @@ individual action direct.
 
 ```yaml
 # inputs:
-#   apt-tools:  { required: false, type: string }
-#   perl-tools: { required: false, type: string }
-#   cache:      { required: false, type: string, default: yes }
-#   cache-gen:  { required: false, type: string, default: v1 }
+#   apt-tools:    { required: false, type: string }
+#   perl-tools:   { required: false, type: string }
+#   python-tools: { required: false, type: string }
+#   cache:        { required: false, type: string, default: yes }
+#   cache-gen:    { required: false, type: string, default: v1 }
 
 # outputs:
 #   apt-cache-hit:  cache status of apt action
@@ -55,17 +56,20 @@ individual action direct.
 ```yaml
 - uses: office-tecoli/actions-use-x-tools@v0
   with:
-    apt-tools:  bmake
-    perl-tools: App::ansiecho
+    apt-tools:    bmake
+    perl-tools:   App::ansiecho
+    python-tools: diff-highlight
 ```
 
 ```yaml
 - uses: office-tecoli/actions-use-x-tools@v0
   with:
-    apt-tools:  >-
+    apt-tools: >-
       bmake
     perl-tools: >-
       App::Greple
       App::optex::textconv
       App::sdif
+    python-tools: >-
+      diff-highlight
 ```

@@ -17,11 +17,21 @@ jobs:
         id: action
         with:
           cache: workflow
-          apt-tools:  bmake
+          apt-tools: bmake
           perl-tools: App::ansiecho
+          python-tools: diff-highlight
       - run: (cd __test__; . run.sh)
-      - run: test "${{ steps.action.outputs.apt-cache-hit }}"  != true
+      - run: test "${{ steps.action.outputs.apt-cache-hit }}" != true
       - run: test "${{ steps.action.outputs.perl-cache-hit }}" != true
+      - run: test "${{ steps.action.outputs.python-cache-hit }}" != true
+      - run: |
+          for result in \
+            "${{ steps.action.outputs.apt-cache-hit }}" \
+            "${{ steps.action.outputs.perl-cache-hit }}" \
+            "${{ steps.action.outputs.python-cache-hit }}"
+          do
+            test "$result" != true
+          done
 
   cached:
     needs: initial
@@ -34,6 +44,16 @@ jobs:
           cache: workflow
           apt-tools:  bmake
           perl-tools: App::ansiecho
+          python-tools: diff-highlight
       - run: (cd __test__; . run.sh)
-      - run: test "${{ steps.action.outputs.apt-cache-hit }}"  == true
+      - run: test "${{ steps.action.outputs.apt-cache-hit }}" == true
       - run: test "${{ steps.action.outputs.perl-cache-hit }}" == true
+      - run: test "${{ steps.action.outputs.python-cache-hit }}" == true
+      - run: |
+          for result in \
+            "${{ steps.action.outputs.apt-cache-hit }}" \
+            "${{ steps.action.outputs.perl-cache-hit }}" \
+            "${{ steps.action.outputs.python-cache-hit }}"
+          do
+            test "$result" == true
+          done
