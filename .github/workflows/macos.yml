@@ -20,12 +20,12 @@ jobs:
           perl-tools: App::ansiecho
           python-tools: diff-highlight
           brew-tools: rcs
-      - run: (cd __test__; . run.sh)
+      - run: (cd __test__; . run.sh perl python brew)
       - run: |
           for result in \
             "${{ steps.action.outputs.perl-cache-hit }}" \
-            "${{ steps.action.outputs.python-cache-hit }}"
-            "${{ steps.action.outputs.brew-cache-hit }}" \
+            "${{ steps.action.outputs.python-cache-hit }}" \
+            "${{ steps.action.outputs.brew-cache-hit }}"
           do
             test "$result" != true
           done
@@ -42,12 +42,12 @@ jobs:
           perl-tools: App::ansiecho
           python-tools: diff-highlight
           brew-tools: rcs
-      - run: (cd __test__; . run.sh)
+      - run: (cd __test__; . run.sh perl python brew)
       - run: |
           for result in \
             "${{ steps.action.outputs.perl-cache-hit }}" \
-            "${{ steps.action.outputs.python-cache-hit }}"
-            "${{ steps.action.outputs.brew-cache-hit }}" \
+            "${{ steps.action.outputs.python-cache-hit }}" \
+            "${{ steps.action.outputs.brew-cache-hit }}"
           do
             test "$result" == true
           done
