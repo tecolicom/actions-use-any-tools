@@ -4,6 +4,7 @@ inputs:
   apt-tools:    { required: false, type: string }
   perl-tools:   { required: false, type: string }
   python-tools: { required: false, type: string }
+  brew-tools:   { required: false, type: string }
   cache:        { required: false, type: string, default: yes }
   cache-gen:    { required: false, type: string, default: v1 }
 
@@ -14,6 +15,8 @@ outputs:
     value: ${{ steps.perl.outputs.cache-hit }}
   python-cache-hit:
     value: ${{ steps.python.outputs.cache-hit }}
+  brew-cache-hit:
+    value: ${{ steps.brew.outputs.cache-hit }}
 
 runs:
   using: composite
@@ -40,5 +43,13 @@ runs:
       uses: office-tecoli/actions-use-python-tools@v0
       with:
         tools: ${{ inputs.python-tools }}
+        cache: ${{ inputs.cache }}
+        cache-gen: ${{ inputs.cache-gen }}
+
+    - id: brew
+      if: inputs.brew-tools != ''
+      uses: office-tecoli/actions-use-brew-tools@v0
+      with:
+        tools: ${{ inputs.brew-tools }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}
