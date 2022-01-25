@@ -1,6 +1,6 @@
-# actions-use-x-tools
+# actions-use-any-tools
 
-![actions-use-x-tools](https://github.com/office-tecoli/actions-use-x-tools/actions/workflows/test.yml/badge.svg)
+![actions-use-any-tools](https://github.com/office-tecoli/actions-use-any-tools/actions/workflows/test.yml/badge.svg)
 
 This Github action is a quick interface to use other `use-*-tools`
 actions.  Currently
@@ -30,7 +30,7 @@ individual action direct.
 #   perl-cache-hit: cache status of perl action
 #   python-cache-hit: cache status of python action
 
-- uses: office-tecoli/actions-use-x-tools@v0
+- uses: office-tecoli/actions-use-any-tools@v0
   with:
 
     # apt tools
@@ -66,7 +66,7 @@ individual action direct.
 ## Example
 
 ```yaml
-- uses: office-tecoli/actions-use-x-tools@v0
+- uses: office-tecoli/actions-use-any-tools@v0
   with:
     apt-tools:    bmake
     brew-tools:   rcs
@@ -75,7 +75,7 @@ individual action direct.
 ```
 
 ```yaml
-- uses: office-tecoli/actions-use-x-tools@v0
+- uses: office-tecoli/actions-use-any-tools@v0
   with:
     apt-tools: >-
       bmake
