@@ -4,8 +4,11 @@
 
 This Github action is a quick interface to use other `use-*-tools`
 actions.  Currently
-[`apt`](https://github.com/office-tecoli/actions-use-apt-tools) and
+[`apt`](https://github.com/office-tecoli/actions-use-apt-tools),
+[`brew`](https://github.com/office-tecoli/actions-use-brew-tools),
 [`perl`](https://github.com/office-tecoli/actions-use-perl-tools)
+and
+[`python`](https://github.com/office-tecoli/actions-use-python-tools)
 tools are supported.  Common parameters `cache` and `cache-gen` can be
 set through this action.  If you want to use other parameters, use
 individual action direct.
@@ -17,12 +20,15 @@ individual action direct.
 #   apt-tools:    { required: false, type: string }
 #   perl-tools:   { required: false, type: string }
 #   python-tools: { required: false, type: string }
+#   brew-tools:   { required: false, type: string }
 #   cache:        { required: false, type: string, default: yes }
 #   cache-gen:    { required: false, type: string, default: v1 }
 
 # outputs:
 #   apt-cache-hit:  cache status of apt action
+#   brew-cache-hit: cache status of brew action
 #   perl-cache-hit: cache status of perl action
+#   python-cache-hit: cache status of python action
 
 - uses: office-tecoli/actions-use-x-tools@v0
   with:
@@ -30,8 +36,14 @@ individual action direct.
     # apt tools
     apt-tools: ''
 
+    # brew tools
+    brew-tools: ''
+
     # perl tools
     perl-tools: ''
+
+    # python tools
+    python-tools: ''
 
     # Cache strategey
     #
@@ -57,6 +69,7 @@ individual action direct.
 - uses: office-tecoli/actions-use-x-tools@v0
   with:
     apt-tools:    bmake
+    brew-tools:   rcs
     perl-tools:   App::ansiecho
     python-tools: diff-highlight
 ```
@@ -66,6 +79,8 @@ individual action direct.
   with:
     apt-tools: >-
       bmake
+    brew-tools: >-
+      rcs
     perl-tools: >-
       App::Greple
       App::optex::textconv
