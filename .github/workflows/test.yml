@@ -17,9 +17,9 @@ jobs:
         id: action
         with:
           cache: workflow
-          apt-tools: bmake
-          perl-tools: App::ansiecho
-          python-tools: diff-highlight
+          apt: bmake
+          perl: App::ansiecho
+          python: diff-highlight
       - run: (cd __test__; . run.sh apt perl python)
       - run: |
           for result in \
@@ -39,9 +39,9 @@ jobs:
         id: action
         with:
           cache: workflow
-          apt-tools:  bmake
-          perl-tools: App::ansiecho
-          python-tools: diff-highlight
+          apt:  bmake
+          perl: App::ansiecho
+          python: diff-highlight
       - run: (cd __test__; . run.sh apt perl python)
       - run: |
           for result in \

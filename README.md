@@ -17,12 +17,12 @@ individual action direct.
 
 ```yaml
 # inputs:
-#   apt-tools:    { required: false, type: string }
-#   perl-tools:   { required: false, type: string }
-#   python-tools: { required: false, type: string }
-#   brew-tools:   { required: false, type: string }
-#   cache:        { required: false, type: string, default: yes }
-#   cache-gen:    { required: false, type: string, default: v1 }
+#   apt:       { required: false, type: string }
+#   brew:      { required: false, type: string }
+#   perl:      { required: false, type: string }
+#   python:    { required: false, type: string }
+#   cache:     { required: false, type: string, default: yes }
+#   cache-gen: { required: false, type: string, default: v1 }
 
 # outputs:
 #   apt-cache-hit:  cache status of apt action
@@ -34,16 +34,16 @@ individual action direct.
   with:
 
     # apt tools
-    apt-tools: ''
+    apt: ''
 
     # brew tools
-    brew-tools: ''
+    brew: ''
 
     # perl tools
-    perl-tools: ''
+    perl: ''
 
     # python tools
-    python-tools: ''
+    python: ''
 
     # Cache strategey
     #
@@ -68,23 +68,24 @@ individual action direct.
 ```yaml
 - uses: office-tecoli/actions-use-any-tools@v0
   with:
-    apt-tools:    bmake
-    brew-tools:   rcs
-    perl-tools:   App::ansiecho
-    python-tools: diff-highlight
+    apt:    bmake
+    brew:   rcs cvs
+    perl:   App::ansiecho
+    python: diff-highlight
 ```
 
 ```yaml
 - uses: office-tecoli/actions-use-any-tools@v0
   with:
-    apt-tools: >-
+    apt: >-
       bmake
-    brew-tools: >-
+    brew: >-
       rcs
-    perl-tools: >-
+      cvs
+    perl: >-
       App::Greple
       App::optex::textconv
       App::sdif
-    python-tools: >-
+    python: >-
       diff-highlight
 ```

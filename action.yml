@@ -1,12 +1,12 @@
 name: setup tools
 
 inputs:
-  apt-tools:    { required: false, type: string }
-  perl-tools:   { required: false, type: string }
-  python-tools: { required: false, type: string }
-  brew-tools:   { required: false, type: string }
-  cache:        { required: false, type: string, default: yes }
-  cache-gen:    { required: false, type: string, default: v1 }
+  apt:       { required: false, type: string }
+  perl:      { required: false, type: string }
+  python:    { required: false, type: string }
+  brew:      { required: false, type: string }
+  cache:     { required: false, type: string, default: yes }
+  cache-gen: { required: false, type: string, default: v1 }
 
 outputs:
   apt-cache-hit:
@@ -23,33 +23,33 @@ runs:
   steps:
 
     - id: apt
-      if: inputs.apt-tools != ''
+      if: inputs.apt != ''
       uses: office-tecoli/actions-use-apt-tools@v0
       with:
-        tools: ${{ inputs.apt-tools }}
+        tools: ${{ inputs.apt }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}
 
     - id: perl
-      if: inputs.perl-tools != ''
+      if: inputs.perl != ''
       uses: office-tecoli/actions-use-perl-tools@v0
       with:
-        tools: ${{ inputs.perl-tools }}
+        tools: ${{ inputs.perl }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}
 
     - id: python
-      if: inputs.python-tools != ''
+      if: inputs.python != ''
       uses: office-tecoli/actions-use-python-tools@v0
       with:
-        tools: ${{ inputs.python-tools }}
+        tools: ${{ inputs.python }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}
 
     - id: brew
-      if: inputs.brew-tools != ''
+      if: inputs.brew != ''
       uses: office-tecoli/actions-use-brew-tools@v0
       with:
-        tools: ${{ inputs.brew-tools }}
+        tools: ${{ inputs.brew }}
         cache: ${{ inputs.cache }}
         cache-gen: ${{ inputs.cache-gen }}
