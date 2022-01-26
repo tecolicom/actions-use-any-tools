@@ -71,7 +71,7 @@ individual action direct.
     apt:    bmake
     brew:   rcs cvs
     perl:   App::ansiecho
-    python: diff-highlight
+    python: legit
 ```
 
 ```yaml
@@ -87,5 +87,5 @@ individual action direct.
       App::optex::textconv
       App::sdif
     python: >-
-      diff-highlight
+      legit
 ```

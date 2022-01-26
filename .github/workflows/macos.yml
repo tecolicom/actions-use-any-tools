@@ -19,7 +19,7 @@ jobs:
           cache: workflow
           brew: rcs
           perl: App::ansiecho
-          python: diff-highlight
+          python: legit
       - run: (cd __test__; . run.sh brew perl python)
       - run: |
           for result in \
@@ -41,7 +41,7 @@ jobs:
           cache: workflow
           brew: rcs
           perl: App::ansiecho
-          python: diff-highlight
+          python: legit
       - run: (cd __test__; . run.sh brew perl python)
       - run: |
           for result in \
