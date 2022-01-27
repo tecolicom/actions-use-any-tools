@@ -1,3 +1,5 @@
+#!/bin/bash
+
 for tools in $*
 do
     case $tools in

@@ -20,7 +20,7 @@ jobs:
           apt: bmake
           perl: App::ansiecho
           python: legit
-      - run: (cd __test__; . run.sh apt perl python)
+      - run: (cd __test__; ./run.sh apt perl python)
       - run: |
           for result in \
             "${{ steps.action.outputs.apt-cache-hit }}" \
@@ -42,7 +42,7 @@ jobs:
           apt:  bmake
           perl: App::ansiecho
           python: legit
-      - run: (cd __test__; . run.sh apt perl python)
+      - run: (cd __test__; ./run.sh apt perl python)
       - run: |
           for result in \
             "${{ steps.action.outputs.apt-cache-hit }}" \

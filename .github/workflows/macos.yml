@@ -20,7 +20,7 @@ jobs:
           brew: rcs
           perl: App::ansiecho
           python: legit
-      - run: (cd __test__; . run.sh brew perl python)
+      - run: (cd __test__; ./run.sh brew perl python)
       - run: |
           for result in \
             "${{ steps.action.outputs.brew-cache-hit }}" \
@@ -42,7 +42,7 @@ jobs:
           brew: rcs
           perl: App::ansiecho
           python: legit
-      - run: (cd __test__; . run.sh brew perl python)
+      - run: (cd __test__; ./run.sh brew perl python)
       - run: |
           for result in \
             "${{ steps.action.outputs.brew-cache-hit }}" \
