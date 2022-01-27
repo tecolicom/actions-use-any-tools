@@ -2,21 +2,21 @@ name: setup tools
 
 inputs:
   apt:       { required: false, type: string }
+  brew:      { required: false, type: string }
   perl:      { required: false, type: string }
   python:    { required: false, type: string }
-  brew:      { required: false, type: string }
   cache:     { required: false, type: string, default: yes }
   cache-gen: { required: false, type: string, default: v1 }
 
 outputs:
   apt-cache-hit:
     value: ${{ steps.apt.outputs.cache-hit }}
+  brew-cache-hit:
+    value: ${{ steps.brew.outputs.cache-hit }}
   perl-cache-hit:
     value: ${{ steps.perl.outputs.cache-hit }}
   python-cache-hit:
     value: ${{ steps.python.outputs.cache-hit }}
-  brew-cache-hit:
-    value: ${{ steps.brew.outputs.cache-hit }}
 
 runs:
   using: composite
