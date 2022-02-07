@@ -10,44 +10,78 @@ on:
 jobs:
 
   initial:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - os: ubuntu-latest
+            tools:  apt perl python
+            apt:    bmake
+            perl:   App::ansiecho
+            python: legit
+          - os: macos-latest
+            tools:  brew perl python
+            brew:   rcs
+            perl:   App::ansiecho
+            python: legit
+    runs-on: ${{ matrix.os.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./
         id: action
         with:
-          cache: workflow
-          apt: bmake
-          perl: App::ansiecho
-          python: legit
-      - run: (cd __test__; ./run.sh apt perl python)
+          cache:  workflow
+          apt:    ${{ matrix.os.apt }}
+          brew:   ${{ matrix.os.brew }}
+          perl:   ${{ matrix.os.perl }}
+          python: ${{ matrix.os.python }}
+      - run: (cd __test__; ./run.sh ${{ matrix.os.tools }})
       - run: |
-          for result in \
-            "${{ steps.action.outputs.apt-cache-hit }}" \
-            "${{ steps.action.outputs.perl-cache-hit }}" \
-            "${{ steps.action.outputs.python-cache-hit }}"
+          : check cache-hit
+          for tool in ${{ matrix.os.tools }}
           do
-            test "$result" != true
+            case $tool in
+              apt)    test "${{ steps.action.outputs.apt-cache-hit }}"    != true ;;
+              brew)   test "${{ steps.action.outputs.brew-cache-hit }}"   != true ;;
+              perl)   test "${{ steps.action.outputs.perl-cache-hit }}"   != true ;;
+              python) test "${{ steps.action.outputs.python-cache-hit }}" != true ;;
+            esac
           done
 
   cached:
     needs: initial
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - os: ubuntu-latest
+            tools:  apt perl python
+            apt:    bmake
+            perl:   App::ansiecho
+            python: legit
+          - os: macos-latest
+            tools:  brew perl python
+            brew:   rcs
+            perl:   App::ansiecho
+            python: legit
+    runs-on: ${{ matrix.os.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./
         id: action
         with:
-          cache: workflow
-          apt:  bmake
-          perl: App::ansiecho
-          python: legit
-      - run: (cd __test__; ./run.sh apt perl python)
+          cache:  workflow
+          apt:    ${{ matrix.os.apt }}
+          brew:   ${{ matrix.os.brew }}
+          perl:   ${{ matrix.os.perl }}
+          python: ${{ matrix.os.python }}
+      - run: (cd __test__; ./run.sh ${{ matrix.os.tools }})
       - run: |
-          for result in \
-            "${{ steps.action.outputs.apt-cache-hit }}" \
-            "${{ steps.action.outputs.perl-cache-hit }}" \
-            "${{ steps.action.outputs.python-cache-hit }}"
+          : check cache-hit
+          for tool in ${{ matrix.os.tools }}
           do
-            test "$result" == true
+            case $tool in
+              apt)    test "${{ steps.action.outputs.apt-cache-hit }}"    == true ;;
+              brew)   test "${{ steps.action.outputs.brew-cache-hit }}"   == true ;;
+              perl)   test "${{ steps.action.outputs.perl-cache-hit }}"   == true ;;
+              python) test "${{ steps.action.outputs.python-cache-hit }}" == true ;;
+            esac
           done
