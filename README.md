@@ -2,7 +2,7 @@
 
 ![actions-use-any-tools](https://github.com/office-tecoli/actions-use-any-tools/actions/workflows/test.yml/badge.svg)
 
-This Github action is a quick interface to use other `use-*-tools`
+This GitHub action is a quick interface to use other `use-*-tools`
 actions.  Currently
 [`apt`](https://github.com/office-tecoli/actions-use-apt-tools),
 [`brew`](https://github.com/office-tecoli/actions-use-brew-tools),
