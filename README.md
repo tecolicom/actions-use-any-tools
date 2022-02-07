@@ -45,7 +45,7 @@ individual action direct.
     # python tools
     python: ''
 
-    # Cache strategey
+    # Cache strategy
     #
     # yes:      activate cache
     # workflow: effective within same workflow (mainly for test)
