@@ -1,12 +1,12 @@
 name: setup tools
 
 inputs:
-  apt:       { required: false, type: string }
-  brew:      { required: false, type: string }
-  perl:      { required: false, type: string }
-  python:    { required: false, type: string }
-  cache:     { required: false, type: string, default: yes }
-  cache-gen: { required: false, type: string, default: v1 }
+  apt:    { required: false, type: string }
+  brew:   { required: false, type: string }
+  perl:   { required: false, type: string }
+  python: { required: false, type: string }
+  cache:  { required: false, type: string, default: yes }
+  key:    { required: false, type: string }
 
 outputs:
   apt-cache-hit:
@@ -28,7 +28,7 @@ runs:
       with:
         tools: ${{ inputs.apt }}
         cache: ${{ inputs.cache }}
-        cache-gen: ${{ inputs.cache-gen }}
+        key:   ${{ inputs.key }}
 
     - id: perl
       if: inputs.perl != ''
@@ -36,7 +36,7 @@ runs:
       with:
         tools: ${{ inputs.perl }}
         cache: ${{ inputs.cache }}
-        cache-gen: ${{ inputs.cache-gen }}
+        key:   ${{ inputs.key }}
 
     - id: python
       if: inputs.python != ''
@@ -44,7 +44,7 @@ runs:
       with:
         tools: ${{ inputs.python }}
         cache: ${{ inputs.cache }}
-        cache-gen: ${{ inputs.cache-gen }}
+        key:   ${{ inputs.key }}
 
     - id: brew
       if: inputs.brew != ''
@@ -52,4 +52,4 @@ runs:
       with:
         tools: ${{ inputs.brew }}
         cache: ${{ inputs.cache }}
-        cache-gen: ${{ inputs.cache-gen }}
+        key:   ${{ inputs.key }}
