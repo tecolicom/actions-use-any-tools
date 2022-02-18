@@ -5,6 +5,7 @@ inputs:
   brew:   { required: false, type: string }
   perl:   { required: false, type: string }
   python: { required: false, type: string }
+  ruby:   { required: false, type: string }
   cache:  { required: false, type: string, default: yes }
   key:    { required: false, type: string }
 
@@ -17,6 +18,8 @@ outputs:
     value: ${{ steps.perl.outputs.cache-hit }}
   python-cache-hit:
     value: ${{ steps.python.outputs.cache-hit }}
+  ruby-cache-hit:
+    value: ${{ steps.ruby.outputs.cache-hit }}
 
 runs:
   using: composite
@@ -27,6 +30,14 @@ runs:
       uses: office-tecoli/actions-use-apt-tools@v0
       with:
         tools: ${{ inputs.apt }}
+        cache: ${{ inputs.cache }}
+        key:   ${{ inputs.key }}
+
+    - id: brew
+      if: inputs.brew != ''
+      uses: office-tecoli/actions-use-brew-tools@v0
+      with:
+        tools: ${{ inputs.brew }}
         cache: ${{ inputs.cache }}
         key:   ${{ inputs.key }}
 
@@ -46,10 +57,10 @@ runs:
         cache: ${{ inputs.cache }}
         key:   ${{ inputs.key }}
 
-    - id: brew
-      if: inputs.brew != ''
-      uses: office-tecoli/actions-use-brew-tools@v0
+    - id: ruby
+      if: inputs.ruby != ''
+      uses: office-tecoli/actions-use-ruby-tools@v0
       with:
-        tools: ${{ inputs.brew }}
+        tools: ${{ inputs.ruby }}
         cache: ${{ inputs.cache }}
         key:   ${{ inputs.key }}
