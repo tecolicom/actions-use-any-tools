@@ -6,9 +6,10 @@ This GitHub action is a quick interface to use other `use-*-tools`
 actions.  Currently
 [`apt`](https://github.com/office-tecoli/actions-use-apt-tools),
 [`brew`](https://github.com/office-tecoli/actions-use-brew-tools),
-[`perl`](https://github.com/office-tecoli/actions-use-perl-tools)
-and
+[`perl`](https://github.com/office-tecoli/actions-use-perl-tools),
 [`python`](https://github.com/office-tecoli/actions-use-python-tools)
+and
+[`ruby`](https://github.com/office-tecoli/actions-use-ruby-tools)
 tools are supported.  Common parameters `cache` and `key` can be
 set through this action.  If you want to use other parameters, use
 individual action direct.
@@ -21,6 +22,7 @@ individual action direct.
 #   brew:   { required: false, type: string }
 #   perl:   { required: false, type: string }
 #   python: { required: false, type: string }
+#   ruby:   { required: false, type: string }
 #   cache:  { required: false, type: string, default: yes }
 #   key:    { required: false, type: string }
 
@@ -29,6 +31,7 @@ individual action direct.
 #   brew-cache-hit: cache status of brew action
 #   perl-cache-hit: cache status of perl action
 #   python-cache-hit: cache status of python action
+#   ruby-cache-hit: cache status of ruby action
 
 - uses: office-tecoli/actions-use-any-tools@v0
   with:
@@ -44,6 +47,9 @@ individual action direct.
 
     # python tools
     python: ''
+
+    # ruby tools
+    ruby: ''
 
     # Cache strategy
     #
@@ -67,6 +73,7 @@ individual action direct.
     brew:   rcs cvs
     perl:   App::ansiecho
     python: legit
+    ruby:   sinatra
 ```
 
 ```yaml
@@ -83,6 +90,8 @@ individual action direct.
       App::sdif
     python: >-
       legit
+    ruby: >-
+      sinatra
 ```
 
 ## See Also

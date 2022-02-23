@@ -18,11 +18,13 @@ jobs:
             apt:    bmake
             perl:   App::ansiecho
             python: legit
+            ruby:   sinatra
           - os: macos-latest
             tools:  brew perl python
             brew:   rcs
             perl:   App::ansiecho
             python: legit
+            ruby:   sinatra
     runs-on: ${{ matrix.os.os }}
     steps:
       - uses: actions/checkout@v2
@@ -34,6 +36,7 @@ jobs:
           brew:   ${{ matrix.os.brew }}
           perl:   ${{ matrix.os.perl }}
           python: ${{ matrix.os.python }}
+          ruby:   ${{ matrix.os.ruby }}
       - run: (cd __test__; ./run.sh ${{ matrix.os.tools }})
       - run: |
           : check cache-hit
@@ -44,6 +47,7 @@ jobs:
               brew)   test "${{ steps.action.outputs.brew-cache-hit }}"   != true ;;
               perl)   test "${{ steps.action.outputs.perl-cache-hit }}"   != true ;;
               python) test "${{ steps.action.outputs.python-cache-hit }}" != true ;;
+              ruby)   test "${{ steps.action.outputs.ruby-cache-hit }}" != true ;;
             esac
           done
 
@@ -57,11 +61,13 @@ jobs:
             apt:    bmake
             perl:   App::ansiecho
             python: legit
+            ruby:   sinatra
           - os: macos-latest
             tools:  brew perl python
             brew:   rcs
             perl:   App::ansiecho
             python: legit
+            ruby:   sinatra
     runs-on: ${{ matrix.os.os }}
     steps:
       - uses: actions/checkout@v2
@@ -73,6 +79,7 @@ jobs:
           brew:   ${{ matrix.os.brew }}
           perl:   ${{ matrix.os.perl }}
           python: ${{ matrix.os.python }}
+          ruby:   ${{ matrix.os.ruby }}
       - run: (cd __test__; ./run.sh ${{ matrix.os.tools }})
       - run: |
           : check cache-hit
@@ -83,5 +90,6 @@ jobs:
               brew)   test "${{ steps.action.outputs.brew-cache-hit }}"   == true ;;
               perl)   test "${{ steps.action.outputs.perl-cache-hit }}"   == true ;;
               python) test "${{ steps.action.outputs.python-cache-hit }}" == true ;;
+              ruby)   test "${{ steps.action.outputs.ruby-cache-hit }}"   == true ;;
             esac
           done
