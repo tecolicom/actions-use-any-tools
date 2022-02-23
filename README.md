@@ -27,11 +27,11 @@ individual action direct.
 #   key:    { required: false, type: string }
 
 # outputs:
-#   apt-cache-hit:  cache status of apt action
-#   brew-cache-hit: cache status of brew action
-#   perl-cache-hit: cache status of perl action
+#   apt-cache-hit:    cache status of apt action
+#   brew-cache-hit:   cache status of brew action
+#   perl-cache-hit:   cache status of perl action
 #   python-cache-hit: cache status of python action
-#   ruby-cache-hit: cache status of ruby action
+#   ruby-cache-hit:   cache status of ruby action
 
 - uses: office-tecoli/actions-use-any-tools@v0
   with:
@@ -97,3 +97,9 @@ individual action direct.
 ## See Also
 
 ### [office-tecoli/actions](https://github.com/office-tecoli/actions)
+
+- [`apt`](https://github.com/office-tecoli/actions-use-apt-tools)
+- [`brew`](https://github.com/office-tecoli/actions-use-brew-tools)
+- [`perl`](https://github.com/office-tecoli/actions-use-perl-tools)
+- [`python`](https://github.com/office-tecoli/actions-use-python-tools)
+- [`ruby`](https://github.com/office-tecoli/actions-use-ruby-tools)
