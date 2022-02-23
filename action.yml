@@ -27,7 +27,7 @@ runs:
 
     - id: apt
       if: inputs.apt != ''
-      uses: office-tecoli/actions-use-apt-tools@v0
+      uses: tecoli-com/actions-use-apt-tools@v0
       with:
         tools: ${{ inputs.apt }}
         cache: ${{ inputs.cache }}
@@ -35,7 +35,7 @@ runs:
 
     - id: brew
       if: inputs.brew != ''
-      uses: office-tecoli/actions-use-brew-tools@v0
+      uses: tecoli-com/actions-use-brew-tools@v0
       with:
         tools: ${{ inputs.brew }}
         cache: ${{ inputs.cache }}
@@ -43,7 +43,7 @@ runs:
 
     - id: perl
       if: inputs.perl != ''
-      uses: office-tecoli/actions-use-perl-tools@v0
+      uses: tecoli-com/actions-use-perl-tools@v0
       with:
         tools: ${{ inputs.perl }}
         cache: ${{ inputs.cache }}
@@ -51,7 +51,7 @@ runs:
 
     - id: python
       if: inputs.python != ''
-      uses: office-tecoli/actions-use-python-tools@v0
+      uses: tecoli-com/actions-use-python-tools@v0
       with:
         tools: ${{ inputs.python }}
         cache: ${{ inputs.cache }}
@@ -59,7 +59,7 @@ runs:
 
     - id: ruby
       if: inputs.ruby != ''
-      uses: office-tecoli/actions-use-ruby-tools@v0
+      uses: tecoli-com/actions-use-ruby-tools@v0
       with:
         tools: ${{ inputs.ruby }}
         cache: ${{ inputs.cache }}
