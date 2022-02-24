@@ -5,7 +5,7 @@
 This GitHub action is a quick interface to use other `use-*-tools`
 actions.  Currently
 [`apt`](https://github.com/tecoli-com/actions-use-apt-tools),
-[`brew`](https://github.com/tecoli-com/actions-use-brew-tools),
+[`homebrew`](https://github.com/tecoli-com/actions-use-homebrew-tools),
 [`perl`](https://github.com/tecoli-com/actions-use-perl-tools),
 [`python`](https://github.com/tecoli-com/actions-use-python-tools)
 and
@@ -18,20 +18,20 @@ individual action direct.
 
 ```yaml
 # inputs:
-#   apt:    { required: false, type: string }
-#   brew:   { required: false, type: string }
-#   perl:   { required: false, type: string }
-#   python: { required: false, type: string }
-#   ruby:   { required: false, type: string }
-#   cache:  { required: false, type: string, default: yes }
-#   key:    { required: false, type: string }
+#   apt:      { required: false, type: string }
+#   homebrew: { required: false, type: string }
+#   perl:     { required: false, type: string }
+#   python:   { required: false, type: string }
+#   ruby:     { required: false, type: string }
+#   cache:    { required: false, type: string, default: yes }
+#   key:      { required: false, type: string }
 
 # outputs:
-#   apt-cache-hit:    cache status of apt action
-#   brew-cache-hit:   cache status of brew action
-#   perl-cache-hit:   cache status of perl action
-#   python-cache-hit: cache status of python action
-#   ruby-cache-hit:   cache status of ruby action
+#   apt-cache-hit:      cache status of apt action
+#   homebrew-cache-hit: cache status of homebrew action
+#   perl-cache-hit:     cache status of perl action
+#   python-cache-hit:   cache status of python action
+#   ruby-cache-hit:     cache status of ruby action
 
 - uses: tecoli-com/actions-use-any-tools@v0
   with:
@@ -39,8 +39,8 @@ individual action direct.
     # apt tools
     apt: ''
 
-    # brew tools
-    brew: ''
+    # homebrew tools
+    homebrew: ''
 
     # perl tools
     perl: ''
@@ -69,11 +69,11 @@ individual action direct.
 ```yaml
 - uses: tecoli-com/actions-use-any-tools@v0
   with:
-    apt:    bmake
-    brew:   rcs cvs
-    perl:   App::ansiecho
-    python: legit
-    ruby:   sinatra
+    apt:      bmake
+    homebrew: rcs cvs
+    perl:     App::ansiecho
+    python:   legit
+    ruby:     sinatra
 ```
 
 ```yaml
@@ -81,7 +81,7 @@ individual action direct.
   with:
     apt: >-
       bmake
-    brew: >-
+    homebrew: >-
       rcs
       cvs
     perl: >-
@@ -99,7 +99,7 @@ individual action direct.
 ### [tecoli-com/actions](https://github.com/tecoli-com/actions)
 
 - [`apt`](https://github.com/tecoli-com/actions-use-apt-tools)
-- [`brew`](https://github.com/tecoli-com/actions-use-brew-tools)
+- [`homebrew`](https://github.com/tecoli-com/actions-use-homebrew-tools)
 - [`perl`](https://github.com/tecoli-com/actions-use-perl-tools)
 - [`python`](https://github.com/tecoli-com/actions-use-python-tools)
 - [`ruby`](https://github.com/tecoli-com/actions-use-ruby-tools)

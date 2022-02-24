@@ -6,19 +6,19 @@ branding:
   icon: 'plus-square'
 
 inputs:
-  apt:    { required: false, type: string }
-  brew:   { required: false, type: string }
-  perl:   { required: false, type: string }
-  python: { required: false, type: string }
-  ruby:   { required: false, type: string }
-  cache:  { required: false, type: string, default: yes }
-  key:    { required: false, type: string }
+  apt:      { required: false, type: string }
+  homebrew: { required: false, type: string }
+  perl:     { required: false, type: string }
+  python:   { required: false, type: string }
+  ruby:     { required: false, type: string }
+  cache:    { required: false, type: string, default: yes }
+  key:      { required: false, type: string }
 
 outputs:
   apt-cache-hit:
     value: ${{ steps.apt.outputs.cache-hit }}
-  brew-cache-hit:
-    value: ${{ steps.brew.outputs.cache-hit }}
+  homebrew-cache-hit:
+    value: ${{ steps.homebrew.outputs.cache-hit }}
   perl-cache-hit:
     value: ${{ steps.perl.outputs.cache-hit }}
   python-cache-hit:
@@ -38,11 +38,11 @@ runs:
         cache: ${{ inputs.cache }}
         key:   ${{ inputs.key }}
 
-    - id: brew
-      if: inputs.brew != ''
-      uses: tecoli-com/actions-use-brew-tools@v0
+    - id: homebrew
+      if: inputs.homebrew != ''
+      uses: tecoli-com/actions-use-homebrew-tools@v0
       with:
-        tools: ${{ inputs.brew }}
+        tools: ${{ inputs.homebrew }}
         cache: ${{ inputs.cache }}
         key:   ${{ inputs.key }}
 
