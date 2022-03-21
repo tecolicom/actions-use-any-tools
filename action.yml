@@ -2,8 +2,8 @@ name: install-and-cache various tools
 description: 'GitHub Action to install and cache various tools'
 author: 'Office TECOLI, LLC'
 branding: 
-  color: 'orange'
-  icon: 'plus-square'
+  color: orange
+  icon:  type
 
 inputs:
   apt:      { required: false, type: string }
