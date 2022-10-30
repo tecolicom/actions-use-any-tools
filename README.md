@@ -1,15 +1,15 @@
 # actions-use-any-tools
 
-![actions-use-any-tools](https://github.com/tecoli-com/actions-use-any-tools/actions/workflows/test.yml/badge.svg)
+![actions-use-any-tools](https://github.com/tecolicom/actions-use-any-tools/actions/workflows/test.yml/badge.svg)
 
 This GitHub action is a quick interface to use other `use-*-tools`
 actions.  Currently
-[`apt`](https://github.com/tecoli-com/actions-use-apt-tools),
-[`homebrew`](https://github.com/tecoli-com/actions-use-homebrew-tools),
-[`perl`](https://github.com/tecoli-com/actions-use-perl-tools),
-[`python`](https://github.com/tecoli-com/actions-use-python-tools)
+[`apt`](https://github.com/tecolicom/actions-use-apt-tools),
+[`homebrew`](https://github.com/tecolicom/actions-use-homebrew-tools),
+[`perl`](https://github.com/tecolicom/actions-use-perl-tools),
+[`python`](https://github.com/tecolicom/actions-use-python-tools)
 and
-[`ruby`](https://github.com/tecoli-com/actions-use-ruby-tools)
+[`ruby`](https://github.com/tecolicom/actions-use-ruby-tools)
 tools are supported.  Common parameters `cache` and `key` can be
 set through this action.  If you want to use other parameters, use
 individual action direct.
@@ -96,10 +96,10 @@ individual action direct.
 
 ## See Also
 
-### [tecoli-com/actions](https://github.com/tecoli-com/actions)
+### [tecolicom/actions](https://github.com/tecolicom/actions)
 
-- [`apt`](https://github.com/tecoli-com/actions-use-apt-tools)
-- [`homebrew`](https://github.com/tecoli-com/actions-use-homebrew-tools)
-- [`perl`](https://github.com/tecoli-com/actions-use-perl-tools)
-- [`python`](https://github.com/tecoli-com/actions-use-python-tools)
-- [`ruby`](https://github.com/tecoli-com/actions-use-ruby-tools)
+- [`apt`](https://github.com/tecolicom/actions-use-apt-tools)
+- [`homebrew`](https://github.com/tecolicom/actions-use-homebrew-tools)
+- [`perl`](https://github.com/tecolicom/actions-use-perl-tools)
+- [`python`](https://github.com/tecolicom/actions-use-python-tools)
+- [`ruby`](https://github.com/tecolicom/actions-use-ruby-tools)
