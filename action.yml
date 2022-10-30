@@ -32,7 +32,7 @@ runs:
 
     - id: apt
       if: inputs.apt != ''
-      uses: tecoli-com/actions-use-apt-tools@v0
+      uses: tecolicom/actions-use-apt-tools@v1
       with:
         tools: ${{ inputs.apt }}
         cache: ${{ inputs.cache }}
@@ -40,7 +40,7 @@ runs:
 
     - id: homebrew
       if: inputs.homebrew != ''
-      uses: tecoli-com/actions-use-homebrew-tools@v0
+      uses: tecolicom/actions-use-homebrew-tools@v1
       with:
         tools: ${{ inputs.homebrew }}
         cache: ${{ inputs.cache }}
@@ -48,7 +48,7 @@ runs:
 
     - id: perl
       if: inputs.perl != ''
-      uses: tecoli-com/actions-use-perl-tools@v0
+      uses: tecolicom/actions-use-perl-tools@v1
       with:
         tools: ${{ inputs.perl }}
         cache: ${{ inputs.cache }}
@@ -56,7 +56,7 @@ runs:
 
     - id: python
       if: inputs.python != ''
-      uses: tecoli-com/actions-use-python-tools@v0
+      uses: tecolicom/actions-use-python-tools@v1
       with:
         tools: ${{ inputs.python }}
         cache: ${{ inputs.cache }}
@@ -64,7 +64,7 @@ runs:
 
     - id: ruby
       if: inputs.ruby != ''
-      uses: tecoli-com/actions-use-ruby-tools@v0
+      uses: tecolicom/actions-use-ruby-tools@v1
       with:
         tools: ${{ inputs.ruby }}
         cache: ${{ inputs.cache }}

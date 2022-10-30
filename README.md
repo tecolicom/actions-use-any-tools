@@ -33,7 +33,7 @@ individual action direct.
 #   python-cache-hit:   cache status of python action
 #   ruby-cache-hit:     cache status of ruby action
 
-- uses: tecoli-com/actions-use-any-tools@v0
+- uses: tecolicom/actions-use-any-tools@v1
   with:
 
     # apt tools
@@ -67,7 +67,7 @@ individual action direct.
 ## Example
 
 ```yaml
-- uses: tecoli-com/actions-use-any-tools@v0
+- uses: tecolicom/actions-use-any-tools@v1
   with:
     apt:      bmake
     homebrew: rcs cvs
@@ -77,7 +77,7 @@ individual action direct.
 ```
 
 ```yaml
-- uses: tecoli-com/actions-use-any-tools@v0
+- uses: tecolicom/actions-use-any-tools@v1
   with:
     apt: >-
       bmake
