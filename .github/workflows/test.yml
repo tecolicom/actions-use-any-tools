@@ -27,7 +27,7 @@ jobs:
             ruby:     sinatra
     runs-on: ${{ matrix.os.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
         id: action
         with:
@@ -70,7 +70,7 @@ jobs:
             ruby:     sinatra
     runs-on: ${{ matrix.os.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
         id: action
         with:
